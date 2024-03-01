@@ -1,0 +1,24 @@
+#textBox{
+    position: relative;
+}
+#input-container{
+    padding: 10px;
+}
+button{
+    position: absolute;
+    top: 50%;
+    left: 4.4cm;
+    transform: translateY(-50%);
+    border-radius: 100%;
+    cursor: pointer;
+    padding: 1px;
+}
+.task-options{
+    display: flex;
+    justify-content: space-between;
+    
+
+}
+p.textStyle{
+    text-decoration:wavy
+}
