@@ -18,14 +18,24 @@ body{
     margin: 100px auto 20px;
     padding: 40px 30px 70px;
     border-radius: 10px;
+    box-shadow: 10px 10px 10px; 
 }
 
 
 #mainListContainer h2{
     color:rgb(64, 44, 19);
-    display: flex;
-    align-items:center;
-    margin-bottom: 20px;
+    text-align: center;
+    margin-bottom: 40px;
+    box-shadow: 6px 4px 0px rgba(0, 0, 0, 0.1);
+    
+}
+h2 span img{
+
+    width: 100px;
+    height: 90px;
+    margin-right: 10px;
+    transform: translate(10%, 30%);
+    
 }
 #textBox{
     display: flex;
@@ -36,6 +46,7 @@ body{
    padding-left: 20px;
    padding-right: 20px;
    margin:20px;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
    
 }
  #input-container{
@@ -48,30 +59,43 @@ body{
  }
 
 #textBox button{
+   
+    
     border: none;
-    border-radius: 50px;
+    background-color:#000000;
+    color: #fff;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
     cursor: pointer;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    
 }
 
 
 .task-options{
     display: flex;
     justify-content: space-between;
+    margin-bottom: 10px;
 }
-p.textStyle{
-    text-decoration:wavy
-}
+
 
 #taskList{
     margin: 10px;
+    padding: 0;
     
 }
 #taskList li{
     list-style-type: none;
-    font-size: 17px;
-    padding: 12px ;
-    user-select: none;
-    cursor:pointer;
+  display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     
 
 }
@@ -84,6 +108,7 @@ p.textStyle{
     outline: none;
     cursor: pointer;
     position: relative;
+    margin-right:20px ;
 }
 input[type="checkbox"]:checked {
     background-color: #007bff;
@@ -93,9 +118,9 @@ input[type="checkbox"]:checked {
 
 /* Style for tick mark */
 input[type="checkbox"]:checked::before {
-    content: '\2713'; /* Unicode character for checkmark */
-    font-size: 16px; /* Adjust the size of the checkmark */
-    color: #fff; /* Color of the checkmark */
+    content: '\2713'; 
+    font-size: 16px; 
+    color: #fff; 
     position: absolute;
     top: 50%;
     left: 50%;
@@ -105,8 +130,43 @@ input[type="checkbox"]:checked::before {
     padding-left: 20px;
     font-size: 25px;
 }
-#delete{
-    position: absolute;
-    left: 80%;
+#delete {
+    cursor: pointer;
+    color: #ff4444;
+    margin-left: auto;
+    display: none;
 }
-
+#taskList li:hover #delete{
+    display: block;
+}
+ #listOptions{
+    list-style-type: none;
+    display: flex;
+    margin-top: 10px;
+    
+ }
+.options{
+    
+    margin-left:10px;
+    color: #615f5f;
+    cursor: pointer;
+    transition: color 0.5s, border-bottom 5s, font-weight 2s;
+}
+.options:hover{
+    font-weight: bolder;
+    color:black;
+    border-bottom: 2px solid black;
+}
+ 
+ #taskLeft{
+    margin-right: 200px;
+    margin-left: 10px;
+    
+ }
+ hr{
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(171, 11, 46, 0.901), rgba(0, 0, 0, 0)); /* Gradient color similar to background color */
+    margin: 20px 0; /* Adjusted margin for spacing */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Added box shadow for the shadow effect */
+}
