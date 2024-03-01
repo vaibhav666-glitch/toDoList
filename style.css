@@ -1,24 +1,112 @@
-#textBox{
-    position: relative;
+*{
+    margin: 0;
+    padding: 0;
+    font-family:'Times New Roman', Times, serif;
+    box-sizing: border-box;
 }
-#input-container{
+body{
+    width: 100%;
+    min-height: 100vh;
+    background-color: rgba(171, 11, 46, 0.901);
     padding: 10px;
 }
-button{
-    position: absolute;
-    top: 50%;
-    left: 4.4cm;
-    transform: translateY(-50%);
-    border-radius: 100%;
-    cursor: pointer;
-    padding: 1px;
+
+#mainListContainer{
+    width:100%;
+    max-width:540px ;
+    background: #fff;
+    margin: 100px auto 20px;
+    padding: 40px 30px 70px;
+    border-radius: 10px;
 }
+
+
+#mainListContainer h2{
+    color:rgb(64, 44, 19);
+    display: flex;
+    align-items:center;
+    margin-bottom: 20px;
+}
+#textBox{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+   background: rgb(194, 192, 192);
+   border-radius: 20px ;
+   padding-left: 20px;
+   padding-right: 20px;
+   margin:20px;
+   
+}
+ #input-container{
+    flex:1;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 10px;
+    font-weight: 14px;
+ }
+
+#textBox button{
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+
 .task-options{
     display: flex;
     justify-content: space-between;
-    
-
 }
 p.textStyle{
     text-decoration:wavy
 }
+
+#taskList{
+    margin: 10px;
+    
+}
+#taskList li{
+    list-style-type: none;
+    font-size: 17px;
+    padding: 12px ;
+    user-select: none;
+    cursor:pointer;
+    
+
+}
+ input[type='checkbox']{
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #333;
+    border-radius: 50%;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+}
+input[type="checkbox"]:checked {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: #fff;
+}
+
+/* Style for tick mark */
+input[type="checkbox"]:checked::before {
+    content: '\2713'; /* Unicode character for checkmark */
+    font-size: 16px; /* Adjust the size of the checkmark */
+    color: #fff; /* Color of the checkmark */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#input-text{
+    padding-left: 20px;
+    font-size: 25px;
+}
+#delete{
+    position: absolute;
+    left: 80%;
+}
+
