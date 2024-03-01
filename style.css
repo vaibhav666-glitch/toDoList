@@ -146,8 +146,8 @@ input[type="checkbox"]:checked::before {
     
  }
 .options{
-    
-    margin-left:10px;
+    display: flex;
+    margin-left:1%;
     color: #615f5f;
     cursor: pointer;
     transition: color 0.5s, border-bottom 5s, font-weight 2s;
@@ -159,8 +159,8 @@ input[type="checkbox"]:checked::before {
 }
  
  #taskLeft{
-    margin-right: 200px;
-    margin-left: 10px;
+    margin-right: 40%;
+    
     
  }
  hr{
