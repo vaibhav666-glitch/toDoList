@@ -143,6 +143,7 @@ input[type="checkbox"]:checked::before {
     list-style-type: none;
     display: flex;
     margin-top: 10px;
+    justify-content: space-between;
     
  }
 .options{
@@ -158,11 +159,7 @@ input[type="checkbox"]:checked::before {
     border-bottom: 2px solid black;
 }
  
- #taskLeft{
-    margin-right: 40%;
-    
-    
- }
+ 
  hr{
     border: 0;
     height: 1px;
