@@ -4,6 +4,13 @@ let listArr=[];
 const inputText=document.getElementById('input-container')
 const listContainer=document.getElementById('taskList')
 
+function handleKeyPress(event) {
+    
+    if (event.key === "Enter") {
+        enqueue();
+    }
+}
+
 function enqueue()
 {
 

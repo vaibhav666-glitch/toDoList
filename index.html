@@ -16,7 +16,7 @@
         <h2><span><img src="busy-list.gif"></span> To-DoList</h2>
         <div id="textBox">
             
-            <input type="text" id="input-container" placeholder="Type your todo List">
+            <input type="text" id="input-container" placeholder="Type your todo List" onkeydown="handleKeyPress(event)">
             <button onclick="enqueue()"><i class="fa-solid fa-plus"></i></button>
         </div>
         <div class="task-options">
