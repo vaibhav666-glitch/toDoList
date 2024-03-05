@@ -130,6 +130,25 @@ input[type="checkbox"]:checked::before {
     padding-left: 20px;
     font-size: 25px;
 }
+
+#priority{
+    cursor: pointer;
+    margin-left: 10px;
+    font-size: x-small;
+    display: none;
+}
+
+#taskList li:hover #priority,
+#priority.high {
+    display: block;
+}
+
+.high{
+    color: rgba(255, 145, 0, 0.808);
+    
+}
+
+
 #delete {
     cursor: pointer;
     color: #ff4444;

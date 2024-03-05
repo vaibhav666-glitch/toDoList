@@ -1,14 +1,15 @@
 
-let listArr=[]
+let listArr=[];
+
 const inputText=document.getElementById('input-container')
 const listContainer=document.getElementById('taskList')
 
-function addToList()
+function enqueue()
 {
 
     if(inputText.value!=='')
         {
-            listArr.push({name:inputText.value, check:false});
+            listArr.push({name:inputText.value, check:false,priority:"low"});
             countTask();
         }
 
@@ -20,7 +21,11 @@ function addToList()
 
 function displayList(option)
 {
-    
+    listArr.sort((a,b)=>{
+        if(a.priority==='high')return -1;
+        if(b.priority==='high')return 1;
+        return 0;
+    })
     for(let i=0;i<listArr.length;i++)
     {
         if(option==='all')
@@ -44,9 +49,10 @@ function createList(obj)
     
     const list=document.createElement('li')
     const checkbox=document.createElement('input')
-    const spanInput=document.createElement('span') 
-    const span=document.createElement("span")
-
+    const spanInput=document.createElement('span')
+    const setPriority=document.createElement('span');
+    const spanDelete=document.createElement("span")
+//Check Box
     checkbox.type='checkbox';
     if(obj.check===true)
         checkbox.checked=true;
@@ -54,10 +60,35 @@ function createList(obj)
        obj.check= obj.check===true?false:true;
        countTask();
     })
+
+// Input Text Value
     spanInput.innerHTML=obj.name;
-    span.innerHTML=`<i class="fa-solid fa-xmark"></i>`;
-    span.id='delete'
-    span.addEventListener('click', ()=>{
+    
+
+// Set Priority
+
+setPriority.innerHTML=`<i class="fa-solid fa-star"></i>`;
+setPriority.id='priority';
+    if(obj.priority==='high')
+        {
+            setPriority.classList.add('high')
+        }
+    setPriority.addEventListener('click',()=>{
+      //  obj.priority= obj.priority==='high'?'low':'high';
+      if(obj.priority==='low')
+      {
+        obj.priority='high';
+        setPriority.classList.add('high');
+      }
+      else{
+        obj.priority='low';
+        setPriority.classList.remove('high');
+      }
+    })
+// Delete 
+    spanDelete.innerHTML=`<i class="fa-solid fa-xmark"></i>`;
+    spanDelete.id='delete'
+    spanDelete.addEventListener('click', ()=>{
     list.remove();
     listArr.splice(listArr.indexOf(obj),1);
     countTask();
@@ -65,12 +96,14 @@ function createList(obj)
 
     list.appendChild(checkbox);
     list.appendChild(spanInput);
-    list.appendChild(span)
+    list.appendChild(setPriority);
+    list.appendChild(spanDelete)
     listContainer.appendChild(list)
     
 }
 
 
+//Display List options
     const listOption=document.getElementById("listOptions")
     const taskLeft=document.createElement('li')
     taskLeft.id='taskLeft'
@@ -114,6 +147,7 @@ function createList(obj)
     listOption.appendChild(completedTask);
 
 
+//Task options
    const completeAllTask=document.getElementById('completeAllTask')
     completeAllTask.addEventListener('click',()=>{
         listArr.forEach(i=>{
@@ -125,6 +159,15 @@ function createList(obj)
         countTask();
     })
 
+    const dequeue=document.getElementById('dequeue')
+    dequeue.addEventListener('click',()=>{
+        listArr.shift();
+        listContainer.innerHTML='';
+        displayList('all');
+        countTask();
+    })
+
+
     let clearCompleted=document.getElementById('clearCompleted')
     clearCompleted.addEventListener('click',()=>{
         listArr=listArr.filter(value=>!value.check)
@@ -132,3 +175,5 @@ function createList(obj)
         displayList('all')
         countTask();
     })
+
+   
